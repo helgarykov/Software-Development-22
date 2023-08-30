@@ -1,0 +1,216 @@
+@startuml Breakout1
+
+abstract class DIKUGame {
+    Window window;
+    Update(): unit
+    Render(): unit
+    Run(): unit
+}
+
+class Game {
+    GameEventBus gamebus;
+    StateMachine stateMachine;
+    KeyHandler():unit
+}
+
+class GameEventBus {
+    InitializeEventBus(): unit
+    Subscribe(): unit
+    RegisterEvent(): unit
+    ProcessEventsSequentially(): unit
+}
+
+class StateMachine {
+    IBreakoutGameState activeState;
+    Dictionary<GameStateType, IBreakoutGameState> transitions;
+    ProcessTransition(): IBreakoutGameState
+    ChangeStates(): unit
+    CheckStateChange(): unit
+    PassKeyEvent(): unit
+}
+
+class MainMenu {
+    GameStateType activeState;
+    MainMenuAction SelectedAction;
+    Entity backGroundImage;
+    Text[] menuButtons;
+    int activeMenuButton;
+    int maxMenuButtons;
+    KeyPress(): unit
+}
+
+class GameRunning {
+    GameStateType activeState;
+    GameRunningAction SelectedAction;
+    Translator trans;
+    GameEventBus gamebus;
+    Player player;
+    EntityContainer<Block> blocks;
+    Ball ball;
+    Points points;
+
+}
+
+class GamePaused {
+    GameStateType activeState;
+    GamePausedAction SelectedAction; 
+}
+
+class GameOver {
+    GameStateType activeState;
+    GameOverAction SelectedAction; 
+}
+
+interface IGameEventProcessor {
+    ProcessEvent(): unit
+}
+
+interface IBreakoutGameState {
+    GameStateType activeState;
+    GetNextState(): GameStateType
+}
+
+interface IGameState {
+    ResetState(): unit
+    UpdateState(): unit
+    RenderState(): unit
+    HandleKeyEvent(): unit
+}
+
+
+GameEventBus *-- Game : composition
+StateMachine *-- Game : composition
+StateMachine *-- IBreakoutGameState : composition
+
+DIKUGame <|-- Game : inheritance
+
+IGameEventProcessor (). GameRunning : implement
+IGameState <|-- IBreakoutGameState : inherit 
+IBreakoutGameState <|.. GameRunning : implement
+IBreakoutGameState <|.. MainMenu : implement
+IBreakoutGameState <|.. GamePaused : implement
+IBreakoutGameState <|.. GameOver : implement 
+
+
+@enduml
+
+@startuml Breakout2
+
+class Game {
+    GameEventBus gamebus;
+    StateMachine stateMachine;
+    KeyHandler():unit
+}
+
+class Entity {
+    Shape Shape;
+    IBaseImage Image;
+}
+
+class Player {
+    float moveLeft;
+    float moveRight;
+    const float MOVEMENT_SPEED;
+    Move(): unit
+    SetMoveLeft(): unit
+    SetMoveRight() : unit
+    UpdateDirection(): unit
+}
+
+class Ball {
+    bool playing;
+    int direction;
+    Move(): unit
+}
+
+
+class Block {
+    Entity entity;
+    IBaseImage greenImages;
+    IBaseImage redImages;
+    Render(): unit
+    beenHit(): unit
+
+}
+class Entity {
+    Shape Shape;
+    IBaseImage Image;
+}
+
+interface IGameEventProcessor {
+    ProcessEvent(): unit
+}
+
+Entity <|-- Block : inheritance
+Entity ()- Player : inheritance
+Entity ()- Ball : inheritance
+
+IGameEventProcessor (). Block : implement
+IGameEventProcessor <|.. Player : implement
+
+Game *-- Block : composition
+Game *-- Player : composition
+Game *-- Ball : composition
+
+@enduml
+
+
+@startuml Breakout3
+
+' class Game {
+'    GameEventBus gamebus;
+'    StateMachine stateMachine;
+'    KeyHandler():unit
+'}
+
+class Entity {
+    Shape Shape;
+    IBaseImage Image;
+}
+
+class Player {
+    float moveLeft;
+    float moveRight;
+    const float MOVEMENT_SPEED;
+    Move(): unit
+    SetMoveLeft(): unit
+    SetMoveRight() : unit
+    UpdateDirection(): unit
+}
+
+class Ball {
+    bool playing;
+    int direction;
+    Move(): unit
+}
+
+
+class Block {
+    Entity entity;
+    IBaseImage greenImages;
+    IBaseImage redImages;
+    Render(): unit
+    beenHit(): unit
+
+}
+class Entity {
+    Shape Shape;
+    IBaseImage Image;
+}
+
+interface IGameEventProcessor {
+    ProcessEvent(): unit
+}
+
+Entity <|-- Block : inheritance
+Entity ()- Player : inheritance
+Entity ()- Ball : inheritance
+
+IGameEventProcessor (). Block : implement
+IGameEventProcessor <|.. Player : implement
+
+Game *-- Block : composition
+Game *-- Player : composition
+Game *-- Ball : composition
+
+@enduml

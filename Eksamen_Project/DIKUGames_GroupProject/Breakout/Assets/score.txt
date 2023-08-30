@@ -1,0 +1,10 @@
+AD  - 59
+ASD - 50
+    - 50
+FSD - 35
+ASD - 3
+F   - 1
+SDS - 1
+ASD - 0
+NEW - 0
+COO - 0
