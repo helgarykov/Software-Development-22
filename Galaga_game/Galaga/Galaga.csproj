@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\DIKUArcade\DIKUArcade\DIKUArcade.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Squadrons\**" />
+    <Compile Remove="Overleaf\Enemy.cs" />
+    <Compile Remove="Overleaf\StartegyDown.cs" />
+    <Compile Remove="Overleaf\Liskov.cs" />
+    <Compile Remove="Overleaf\Interface.cs" />
+    <Compile Remove="Overleaf\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Squadrons\**" />
+    <EmbeddedResource Remove="Overleaf\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Squadrons\**" />
+    <None Remove="Overleaf\**" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+</Project>
