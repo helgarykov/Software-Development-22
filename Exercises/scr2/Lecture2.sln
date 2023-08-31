@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRI.SoftwareDevelopment2022.Lecture2", "HRI.SoftwareDevelopment2022.Lecture2\HRI.SoftwareDevelopment2022.Lecture2.csproj", "{BB7A41E0-59A1-49CA-B809-86E5BECE8061}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRI.SoftwareDevelopment2022.Lecture2.Test", "HRI.SoftwareDevelopment2022.Lecture2.Test\HRI.SoftwareDevelopment2022.Lecture2.Test.csproj", "{A674A74F-F99B-4CEB-86B0-893920376F04}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB7A41E0-59A1-49CA-B809-86E5BECE8061}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB7A41E0-59A1-49CA-B809-86E5BECE8061}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB7A41E0-59A1-49CA-B809-86E5BECE8061}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB7A41E0-59A1-49CA-B809-86E5BECE8061}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A674A74F-F99B-4CEB-86B0-893920376F04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A674A74F-F99B-4CEB-86B0-893920376F04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A674A74F-F99B-4CEB-86B0-893920376F04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A674A74F-F99B-4CEB-86B0-893920376F04}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
